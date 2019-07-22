@@ -22,7 +22,18 @@
             }
         }
     }
+
+    .toggleMenuStyle{
+        display: none;
+        margin-bottom: 5px;
+        
+        ul {
+            display: block;
+        }
+    }
 }
+
+
 
 @media (max-width: 820px) {
   .links {

@@ -12,4 +12,14 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleMenu = false;
+
+  onToggleMenu() {
+    if(this.toggleMenu === true){
+       this.toggleMenu = false;
+    }else{
+      this.toggleMenu = true;
+    }
+    console.log('click');
+  }
 }
