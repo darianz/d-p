@@ -8,7 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dharma-photography';
-
+  player: YT.Player;
+  id: string = 'qDuKsiwS5xw';
+ 
+  savePlayer(player) {
+    this.player = player;
+    console.log('player instance', player);
+  }
+  onStateChange(event) {
+    console.log('player state', event.data);
+  }
   constructor() {
    
   }

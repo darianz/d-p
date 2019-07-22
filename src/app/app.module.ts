@@ -11,11 +11,18 @@ import { NavComponent } from './header/nav/nav.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BusinessComponent } from './business/business.component';
+import { YoutubeVideosComponent } from './youtube-videos/youtube-videos.component';
+import { VimeoVideosComponent } from './vimeo-videos/vimeo-videos.component';
+import { FacebookVideosComponent } from './facebook-videos/facebook-videos.component';
 
 const appRoutes: Routes = [
 {path: '', component: HomeComponent },
 {path: 'home', component: HomeComponent },
 {path: 'login', component: LoginComponent},
+{path: 'business', component: BusinessComponent},
 {path: 'weddings', component: WeddingsComponent},
 {path: 'not-found', component: NotFoundComponent},
 {path: '**', redirectTo: '/not-found'},
@@ -29,16 +36,23 @@ const appRoutes: Routes = [
     HeaderComponent,
     NavComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    BusinessComponent,
+    YoutubeVideosComponent,
+    VimeoVideosComponent,
+    FacebookVideosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxYoutubePlayerModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
