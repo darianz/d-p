@@ -17,6 +17,10 @@ import { BusinessComponent } from './business/business.component';
 import { YoutubeVideosComponent } from './youtube-videos/youtube-videos.component';
 import { VimeoVideosComponent } from './vimeo-videos/vimeo-videos.component';
 import { FacebookVideosComponent } from './facebook-videos/facebook-videos.component';
+import { VideosComponent } from './videos/videos.component';
+
+import { VideoEditComponent } from './video-edit/video-edit.component';
+
 
 const appRoutes: Routes = [
 {path: '', component: HomeComponent },
@@ -40,7 +44,10 @@ const appRoutes: Routes = [
     BusinessComponent,
     YoutubeVideosComponent,
     VimeoVideosComponent,
-    FacebookVideosComponent
+    FacebookVideosComponent,
+    VideosComponent,
+    VideoEditComponent
+ 
   ],
   imports: [
     BrowserModule,
