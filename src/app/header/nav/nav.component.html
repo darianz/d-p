@@ -1,17 +1,17 @@
 <div class="nav">
   <ul class="links">
-    <li routerLinkActive="active"><a>צור קשר</a></li>
-    <li routerLinkActive="active"><a routerLink="/business">עסקים</a></li>
-    <li routerLinkActive="active"><a routerLink="/weddings">חתונות</a></li>
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="#" routerLink="/">בית</a></li>
+    <li class="link" routerLinkActive="active"><a>צור קשר</a></li>
+    <li class="link" routerLinkActive="active"><a routerLink="/business">עסקים</a></li>
+    <li class="link" routerLinkActive="active"><a routerLink="/weddings">חתונות</a></li>
+    <li class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="#" routerLink="/">בית</a></li>
   </ul>
   <div class="mobile-nav" (click)="onToggleMenu()"></div>
 
-  <ul [ngClass]="{'toggleMenuStyle': toggleMenu === false}">
+  <ul class="links-nav" [ngClass]="{'toggleMenuStyle': toggleMenu === false}">
     <!--<i class="fa fa-bars icon" (click)="onToggleMenu()"></i>-->
     <!-- <li (click)="onToggleMenu()">TARGET</li> -->
-    <li><a routerLink='/' routerLinkActive='active'>בית</a></li>
-    <li><a routerLink='/business' routerLinkActive='active'>עסקים</a></li>
-    <li><a routerLink='/weddings' routerLinkActive='active'>חתונות</a></li>
+    <li class="link"><a routerLink='/' routerLinkActive='active'>בית</a></li>
+    <li class="link"><a routerLink='/business' routerLinkActive='active'>עסקים</a></li>
+    <li class="link"><a routerLink='/weddings' routerLinkActive='active'>חתונות</a></li>
   </ul>
 </div>
