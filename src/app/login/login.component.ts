@@ -12,10 +12,14 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   submited = false;
+
+  isLoginMode = false;
+
   constructor(http: HttpClient) { }
 
   ngOnInit() {
   }
+
   onSubmit(form: NgForm) {
     this.submited = true;
     this.username = this.loginForm.value.user;
@@ -23,9 +27,9 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value.user);
     console.log(this.loginForm.value.pass);
 
-
-    
-    
-    
   }
+  onSwitchMode(){
+    this.isLoginMode = !this.isLoginMode;
+  }
+
 }

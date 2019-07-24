@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { VideoEditService } from '../video-edit.service';
 
 @Component({
   selector: 'app-video-edit',
@@ -16,7 +17,7 @@ export class VideoEditComponent implements OnInit {
   submited = false;
 
   videosArray = [];
-  constructor() { }
+  constructor(private videoEditService: VideoEditService) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,9 @@ export class VideoEditComponent implements OnInit {
     this.type = this.loginForm.value.type;
     this.ID = this.loginForm.value.ID;
     this.description = this.loginForm.value.description;
+
+    this.videoEditService.addVideo(this.name, this.ID, this.type, this.description);
+    
     /* 
        this.name = this.loginForm.value.user;
     this.type = this.loginForm.value.pass;

@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./facebook-videos.component.scss']
 })
 export class FacebookVideosComponent implements OnInit {
-
-  constructor() { }
+  name: string;
+  ID: string;
+  description: string;
+  
+  constructor() {
+    
+   }
 
   ngOnInit() {
   }

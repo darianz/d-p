@@ -1,15 +1,16 @@
-<form (ngSubmit) = "onSubmit()" #f="ngForm">
+<form (ngSubmit)="onSubmit()" #f="ngForm">
   <div class="username">
     <label for="user">Username</label>
-    <input type="text" id="user" class="form-control" ngModel name="user" autocomplete="email">
+    <input type="text" id="user" class="form-control" ngModel name="user" autocomplete="email" required>
   </div>
 
   <div class="password">
-      <label for="pass">Password</label>
-      <input type="password" id="pass" class="form-control" ngModel name="pass" autocomplete="password">
-    </div>
+    <label for="pass">Password</label>
+    <input type="password" id="pass" class="form-control" ngModel name="pass" autocomplete="password" required
+      minlength="6">
+  </div>
 
-    <div class="submit">
-      <button type="submit">Submit</button>
-    </div>
+  <div class="submit">
+    <button type="submit" [disabled]="!f.valid">Submit</button>
+  </div>
 </form>

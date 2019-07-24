@@ -1,15 +1,14 @@
-
 <h1>Add Video</h1>
 <label for=""></label>
 
-<form (ngSubmit) = "onSubmit()" #f="ngForm">
+<form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
   <div class="name">
-    <label for="name">Name</label>
-    <input type="text" id="name" class="form-control" ngModel name="name">
+    <label for="name">Tittle</label>
+    <input type="text" id="name" class="form__control form-control" ngModel name="name">
   </div>
 
   <div class="type">
-      <label for="type">Type</label>
+    <label for="type">Type</label>
     <select ngModel name="type">
       <option value="youtube">Youtube</option>
       <option value="Vimeo">Vimeo</option>
@@ -18,22 +17,16 @@
     </select>
   </div>
   <div class="URL">
-      <label for="URL">URL</label>
-      <input type="text" id="URL" class="form-control" ngModel name="ID" >
-    </div>
-    <div class="description">
-        <label for="pass">Description</label>
-        <input type="textarea" id="description" class="form-control" ngModel name="description" >
-      </div>
+    <label for="URL">URL</label>
+    <input type="text" id="URL" class="form__control form-control" ngModel name="ID">
+  </div>
+  <div class="description">
+    <label for="pass">Description</label>
+    <input type="textarea" id="description" class="form__control form-control" ngModel name="description">
+  </div>
 
-    <div class="submit">
-      <button type="submit">Submit</button>
-    </div>
+  <div class="submit">
+    <button type="submit">Submit</button>
+  </div>
 </form>
 
-<div class="video_container" *ngIf="submited">
-    <h2>{{name}}</h2>
-    <h3>{{type}}</h3>
-    <h4>{{ID}}</h4>
-    <p>{{description}}</p>
-    </div>

@@ -1,15 +1,11 @@
-<p>
-  videos works!
-</p>
-
 <div class="videos-container">
 
 <ul *ngFor="let video of videosArray">
   <li>
-      <h2>{{video.name}}</h2>
-      <h3>{{video.type}}</h3>
-      <h4>{{video.ID}}</h4>
-      <p>{{video.description}}</p>
+      <h2 class="video__tittle">{{video.name}}</h2>
+      <h3 class="video__player">{{video.type}}</h3>
+      <h4 class="video__player">{{video.ID}}</h4>
+      <div class="video__description">{{video.description}}</div>
   </li>
 </ul>
 </div>

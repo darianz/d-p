@@ -5,7 +5,7 @@ export class Video {
   public type: string;
 
 
-  constructor(name: string, desc: string, id: string, type: string){
+  constructor(name: string, id: string, type: string, desc: string){
     this.name = name;
     this.description = desc;
     this.ID = id;
