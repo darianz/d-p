@@ -2,16 +2,13 @@
     display: block;
     text-align: end;
     // grid-area: 2;
+    // background-color: #f0e3db;
     
-    
-    .links {
-        
-        padding-top: 3vh;
-        text-align: center;
-        
-        
+    .active {
+        background-color: #B2B1B0;
+       
     }
-    
+
     .link {
         
         display: inline-block;
@@ -21,10 +18,24 @@
         
         a {
             text-decoration: none;
-            color: white;
+            color: #76726F;
             font-size: 1.5rem;
         }
     }
+
+    .active a {
+         color: #FAF6F3 ;
+        
+    }
+    .links {
+        
+        padding-top: 3vh;
+        text-align: center;
+        
+        
+    }
+    
+  
 
     .toggleMenuStyle {
         display: none;

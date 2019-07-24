@@ -1,9 +1,18 @@
-
 <p>youtube-videos works!</p>
-<youtube-player
-[videoId]="id"
-(ready)="savePlayer($event)"
-(change)="onStateChange($event)"
-[height] = 360
-[width] = 640
-></youtube-player>
+<div class="youtube-video_container">
+    <div class="video-title">
+            <h1>Name Of Video</h1>
+    </div>
+    
+    <youtube-player 
+    [videoId]="id"
+     (ready)="savePlayer($event)" 
+     (change)="onStateChange($event)" 
+     [height]=360 
+     [width]=640></youtube-player>
+     <div class="video-desc">
+            <p>זהו סרטון מהמם על משפחה קטנה שחיה באלפיים עד שקבוצה של נאצים באו ושחטו אותם</p>
+     </div>
+    
+</div>
+
