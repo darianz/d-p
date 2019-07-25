@@ -20,16 +20,24 @@ import { FacebookVideosComponent } from './facebook-videos/facebook-videos.compo
 import { VideosComponent } from './videos/videos.component';
 
 import { VideoEditComponent } from './video-edit/video-edit.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { MobileNavComponent } from './header/mobile-nav/mobile-nav.component';
+import { LoginGuard } from './login/login.guard';
+import { ServerHandelerComponent } from './server-handeler/server-handeler.component';
+import { ServerHandelerService } from './server-handeler.service';
 
 
 const appRoutes: Routes = [
-{path: '', component: HomeComponent },
 {path: 'home', component: HomeComponent },
+{path: '', component: HomeComponent },
 {path: 'login', component: LoginComponent},
 {path: 'business', component: BusinessComponent},
 {path: 'weddings', component: WeddingsComponent},
+{path: 'video-edit', component: VideoEditComponent},
+{path: 'video-view', component: ServerHandelerComponent},
+// {path: 'video-edit', component: VideoEditComponent, canActivate: [LoginGuard]},
 {path: 'not-found', component: NotFoundComponent},
-{path: '**', redirectTo: '/not-found'},
+{path: '**', redirectTo: '/not-found'}
 ];
 
 @NgModule({
@@ -46,7 +54,10 @@ const appRoutes: Routes = [
     VimeoVideosComponent,
     FacebookVideosComponent,
     VideosComponent,
-    VideoEditComponent
+    VideoEditComponent,
+    LoadingSpinnerComponent,
+    MobileNavComponent,
+    ServerHandelerComponent
  
   ],
   imports: [
@@ -57,7 +68,7 @@ const appRoutes: Routes = [
     NgxYoutubePlayerModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ServerHandelerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

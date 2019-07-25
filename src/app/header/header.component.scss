@@ -2,7 +2,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    padding-bottom: 5vh;
+    padding-bottom: 10vh;
 
     .logo {
         display: block;
@@ -15,8 +15,8 @@
     }
 }
 
-@media (max-width: 780px) {
-    .header {
-        grid-template-columns: 85% auto;
-    }
-}
+// @media (max-width: 780px) {
+//     .header {
+//         grid-template-columns: 85% auto;
+//     }
+// }

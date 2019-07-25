@@ -5,13 +5,14 @@
     </div>
     
     <youtube-player 
+    class="yt-player"
     [videoId]="id"
      (ready)="savePlayer($event)" 
      (change)="onStateChange($event)" 
      [height]=360 
      [width]=640></youtube-player>
      <div class="video-desc">
-            <p>זהו סרטון מהמם על משפחה קטנה שחיה באלפיים עד שקבוצה של נאצים באו ושחטו אותם</p>
+            <p>זהו סרטון מהמם על משפחה קטנה שחיה באלפיים ועל הקשיים היום יומיים המעורבים בכך</p>
      </div>
     
 </div>

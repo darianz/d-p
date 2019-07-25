@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VimeoVideosComponent } from './vimeo-videos.component';
+import { MobileNavComponent } from './mobile-nav.component';
 
-describe('VimeoVideosComponent', () => {
-  let component: VimeoVideosComponent;
-  let fixture: ComponentFixture<VimeoVideosComponent>;
+describe('MobileNavComponent', () => {
+  let component: MobileNavComponent;
+  let fixture: ComponentFixture<MobileNavComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [VimeoVideosComponent]
+      declarations: [ MobileNavComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VimeoVideosComponent);
+    fixture = TestBed.createComponent(MobileNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

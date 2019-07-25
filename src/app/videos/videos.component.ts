@@ -17,13 +17,15 @@ export class VideosComponent implements OnInit {
 
 
    }
-
-  ngOnInit() {
-    this.videosArray = this.videosService.videosArray;
-  }
-
-  addNewVideo() {
+   
+   ngOnInit() {
+     this.videosArray = this.videosService.videosArray;
     
-  }
-  
+    }
+    
+    addNewVideo() {
+      
+    }
+    
+    
 }

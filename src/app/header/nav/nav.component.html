@@ -1,17 +1,19 @@
-<div class="nav row">
+<div class="nav">
   <ul class="links">
     <li class="link" routerLinkActive="active"><a>צור קשר</a></li>
+    <li class="link" routerLinkActive="active"><a routerLink="/video-edit">הוספת סרטון</a></li>
+    <li class="link" routerLinkActive="active"><a routerLink="/video-view">צפיה בסרטון</a></li>
     <li class="link" routerLinkActive="active"><a routerLink="/business">עסקים</a></li>
     <li class="link" routerLinkActive="active"><a routerLink="/weddings">חתונות</a></li>
-    <li class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="#" routerLink="/">בית</a></li>
+    <li class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="#" routerLink="/home">בית</a></li>
+    <button class="btn btn-primary" *ngIf="isLogged" (click)="onLogout()">Logout</button>
   </ul>
-  <div class="mobile-nav" (click)="onToggleMenu()"></div>
 
-  <ul class="links-nav" [ngClass]="{'toggleMenuStyle': toggleMenu === false}">
-    <!--<i class="fa fa-bars icon" (click)="onToggleMenu()"></i>-->
-    <!-- <li (click)="onToggleMenu()">TARGET</li> -->
-    <li class="link"><a routerLink='/' routerLinkActive='active'>בית</a></li>
-    <li class="link"><a routerLink='/business' routerLinkActive='active'>עסקים</a></li>
-    <li class="link"><a routerLink='/weddings' routerLinkActive='active'>חתונות</a></li>
-  </ul>
 </div>
+
+<!--
+
+    <li class="link" *ngIf="!isLogged" routerLinkActive="active" ><a routerLink="/login" >התחבר</a></li>
+    <li class="link" routerLinkActive="active" *ngIf="isLogged"><a routerLink="/video-edit">ערוך</a></li>
+
+-->
