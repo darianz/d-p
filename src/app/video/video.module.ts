@@ -1,6 +1,6 @@
 export class Video {
   public name: string;
-  public ID: string;
+  public ID: string; // Dont need id? maybe just url?
   public description: string;
   public type: string;
 
