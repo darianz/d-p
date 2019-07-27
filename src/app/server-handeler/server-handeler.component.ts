@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ServerHandelerService } from '../server-handeler.service';
+import { Video } from '../video/video.module';
+
+
 
 
 @Component({
@@ -8,20 +11,48 @@ import { ServerHandelerService } from '../server-handeler.service';
   styleUrls: ['./server-handeler.component.scss']
 })
 export class ServerHandelerComponent implements OnInit {
-
-  video = {name: 'Video tittle', ID: '1456', description: 'Video description', type: 'youtube'};
+  videosArray: Video[] = [];
+  
 
   constructor(private ServerHandelerService: ServerHandelerService) { }
 
   ngOnInit() {
-    this.ServerHandelerService.getVideos().subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
+
+  
+ 
   }
 
-  addVideo() { //storeVideo is a callback
-    this.ServerHandelerService.storeVideo(this.video)
+  
+
+  fetchData() {
+    this.ServerHandelerService.getVideos().subscribe(
+      (response) => {
+        console.log(response);
+        this.videosArray = response;
+      }); 
+    
+  }
+
+  readData() {
+
+    if (this.videosArray.length ===0){
+      console.log("didnt fetch data");
+    } else {
+      for ( let i = 0; i<this.videosArray.length; i++){
+        console.log("video number "+ i+1 +":");
+        console.log("video name: "+ this.videosArray[i].name);
+        console.log("video name: "+ this.videosArray[i].type);
+        console.log("video name: "+ this.videosArray[i].url);
+        console.log("video name: "+ this.videosArray[i].description);
+        console.log("video name: "+ this.videosArray[i].id);
+      }
+    }
+  
+    
+  }
+
+  addVideo(video: Video) { //storeVideo is a callback
+    this.ServerHandelerService.storeVideo(video)
     .subscribe(
       (response) => console.log(response),
       (error) => console.log(error)

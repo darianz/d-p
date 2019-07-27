@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { VideoEditService } from '../video-edit.service';
+import { ServerHandelerService } from '../server-handeler.service';
 
 @Component({
   selector: 'app-video-edit',
@@ -9,28 +9,45 @@ import { VideoEditService } from '../video-edit.service';
 })
 export class VideoEditComponent implements OnInit {
 
+  videos: any;
+
   @ViewChild('f') loginForm: NgForm;
   name: string;
-  ID: string;
+  url: string;
   type: string;
   description: string;
   submited = false;
 
-  videosArray = [];
-  constructor(private videoEditService: VideoEditService) { }
+  // videosArray = [];
+  constructor(private ServerHandelerService: ServerHandelerService) { }
 
   ngOnInit() {
+    // this.ServerHandelerService.getVideos().subscribe(
+    //   (response) => {
+    //     this.videos = [response];
+    //     console.log(this.videos);
+        
+    //   },
+    //   (error) => console.log(error)
+    // );
   }
+
 
   onSubmit(form: NgForm) {
     this.submited = true;
 
     this.name = this.loginForm.value.name;
     this.type = this.loginForm.value.type;
-    this.ID = this.loginForm.value.ID;
+    this.url = this.loginForm.value.ID;
     this.description = this.loginForm.value.description;
+    // console.log(this.loginForm.value);
 
-    this.videoEditService.addVideo(this.name, this.ID, this.type, this.description);
+    this.ServerHandelerService.storeVideo(this.loginForm.value)
+    .subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+      
+    );
     
     /* 
        this.name = this.loginForm.value.user;
@@ -42,7 +59,10 @@ export class VideoEditComponent implements OnInit {
 
 
   }
+
 }
+
+
 
 /* 
 

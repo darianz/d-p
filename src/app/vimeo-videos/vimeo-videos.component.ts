@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vimeo-videos.component.scss']
 })
 export class VimeoVideosComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {

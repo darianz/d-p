@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Video } from '../video/video.module';
 
 @Component({
   selector: 'app-facebook-videos',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./facebook-videos.component.scss']
 })
 export class FacebookVideosComponent implements OnInit {
-  name: string;
-  ID: string;
-  description: string;
+  video: Video;
   
-  constructor() {
+  constructor(newVideo: Video) {
+    this.video.name = newVideo.name;
+    this.video.description = newVideo.description;
+    this.video.url = newVideo.url;
     
    }
 
