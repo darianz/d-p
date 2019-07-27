@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Video } from './video/video.module';
+import { Video } from '../videos/video.module';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class ServerHandelerService {
 
   constructor(private http: HttpClient) { }
   array: Video[] = []
-  storeVideo(video: any) {
+  storeVideo(video: Video) {
     return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', video);
   }
 
@@ -28,7 +28,7 @@ export class ServerHandelerService {
       })
     );
   }
-  
+
 }
 
 

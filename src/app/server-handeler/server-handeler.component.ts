@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ServerHandelerService } from '../server-handeler.service';
-import { Video } from '../video/video.module';
+import { ServerHandelerService } from '../shared/server-handeler.service';
+import { Video } from '../videos/video.module';
 
 
 
@@ -29,7 +29,9 @@ export class ServerHandelerComponent implements OnInit {
       (response) => {
         console.log(response);
         this.videosArray = response;
-      }); 
+      },
+      (error) => console.log(error)
+      ); 
     
   }
 
@@ -38,8 +40,8 @@ export class ServerHandelerComponent implements OnInit {
     if (this.videosArray.length ===0){
       console.log("didnt fetch data");
     } else {
-      for ( let i = 0; i<this.videosArray.length; i++){
-        console.log("video number "+ i+1 +":");
+      for ( let i = 0; i < this.videosArray.length; i++){
+        console.log("video number "+ (i+1) +":");
         console.log("video name: "+ this.videosArray[i].name);
         console.log("video name: "+ this.videosArray[i].type);
         console.log("video name: "+ this.videosArray[i].url);

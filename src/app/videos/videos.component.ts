@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Video } from '../video/video.module';
-import { VideoEditService } from '../video-edit.service';
+import { Video } from '../videos/video.module';
+
 
 @Component({
   selector: 'app-videos',
@@ -13,13 +13,12 @@ export class VideosComponent implements OnInit {
   videosArray : Video[] = [];
   
 
-  constructor(private videosService: VideoEditService) {
+  constructor() {
 
 
    }
    
    ngOnInit() {
-     this.videosArray = this.videosService.videosArray;
     
     }
     

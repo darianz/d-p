@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { LoginService } from 'src/app/login/login.service';
+import { LoginService } from '../../pages/login/login.service';
 
 @Component({
   selector: 'app-nav',

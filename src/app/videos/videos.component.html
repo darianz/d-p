@@ -3,8 +3,8 @@
 <ul *ngFor="let video of videosArray">
   <li>
       <h2 class="video__tittle">{{video.name}}</h2>
-      <h3 class="video__player">{{video.type}}</h3>
-      <h4 class="video__player">{{video.ID}}</h4>
+      <iframe class="video__player" src="{{ video.url }}" width="640" height="360" frameborder="0" allowfullscreen
+    allow="autoplay; encrypted-media"></iframe>
       <div class="video__description">{{video.description}}</div>
   </li>
 </ul>

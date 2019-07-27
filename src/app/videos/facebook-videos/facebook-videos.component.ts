@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Video } from '../video/video.module';
+import { Video } from '../video.module';
 
 @Component({
   selector: 'app-facebook-videos',

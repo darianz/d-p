@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ServerHandelerService } from '../server-handeler.service';
+import { ServerHandelerService } from '../../shared/server-handeler.service';
 
 @Component({
   selector: 'app-video-edit',
