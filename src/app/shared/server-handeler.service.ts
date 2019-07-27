@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Video } from '../videos/video.module';
+import { Video, Videos } from '../videos/video.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerHandelerService {
-
+  
+  videos: Video[] = []
+  
   constructor(private http: HttpClient) { }
-  array: Video[] = []
+  
   storeVideo(video: Video) {
     return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', video);
   }
 
   getVideos() {
-    return this.http.get<{[key: string]: Video}>('https://dharmaphoto1-bdc44.firebaseio.com/data.json')
+    return this.http.get<Videos>('https://dharmaphoto1-bdc44.firebaseio.com/data.json')
     .pipe(
-      map((responseData) => {
+      map((videosData: Videos) => {
         const videosArray: Video[] = [];
-        for (const key in responseData){
-          if (responseData.hasOwnProperty(key)) {
-            videosArray.push({ ...responseData[key], id: key});
-          }
-        }
+        
+        Object.keys(videosData).forEach((videoId) => {
+          videosArray.push({ ...videosData[videoId], id: videoId});
+        });
         return videosArray;
       })
     );
