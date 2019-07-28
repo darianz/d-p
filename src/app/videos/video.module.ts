@@ -10,7 +10,7 @@ export class Video {
   public id: string;
   // public correctedUrl: string;
 
-  constructor(name: string, url: string, type: string, desc: string){
+  constructor(name: string, url: string, type: string, desc: string, id='none'){
     this.name = name;
     this.description = desc;
     this.url = url;
@@ -21,22 +21,5 @@ export class Video {
   
 }
 
-export class VideoFinale {
-  public name: string;
-  public url: string; // Dont need id? maybe just url?
-  public description: string;
-  public type: string;
-  public id: string;
-  // public correctedUrl: string;
 
-  constructor(video: Video){
-    this.name = video.name;
-    this.description =  video.description;
-    this.url =  video.url;
-    // this.correctedUrl = correctedUrl;
-    this.type =  video.type;
-  }
-
-  
-}
 

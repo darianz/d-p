@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServerHandelerService } from '../shared/server-handeler.service';
-import { Video, VideoFinale } from '../videos/video.module';
+import { Video} from '../videos/video.module';
 
 import { DomSanitizer } from '@angular/platform-browser';
-
 
 
 
@@ -66,7 +65,7 @@ export class ServerHandelerComponent implements OnInit {
             if (this.videosArray[video].url.includes('https://www.youtube.com/watch?v=')) {
               this.videosArray[video].url = this.videosArray[video].url.slice(32);
               this.videosArray[video].url = this.youtubePrefix + this.videosArray[video].url;
-              this.newVideo = new VideoFinale(this.videosArray[video]);
+              this.newVideo = new Video(this.videosArray[video].name,this.videosArray[video].url,this.videosArray[video].type,this.videosArray[video].description,this.videosArray[video].id);
               this.newVideosArray.push(this.newVideo);
             } else {
               // ERROR 
@@ -76,7 +75,7 @@ export class ServerHandelerComponent implements OnInit {
             if (this.videosArray[video].url.includes('https://vimeo.com/')) {
               this.videosArray[video].url = this.videosArray[video].url.slice(18);
               this.videosArray[video].url = this.vimeoPrefix + this.videosArray[video].url
-              this.newVideo = new VideoFinale(this.videosArray[video]);
+              this.newVideo = new Video(this.videosArray[video].name,this.videosArray[video].url,this.videosArray[video].type,this.videosArray[video].description,this.videosArray[video].id);
               this.newVideosArray.push(this.newVideo);
             } else {
               // ERROR
@@ -92,12 +91,14 @@ export class ServerHandelerComponent implements OnInit {
 
               });
               this.videosArray[video].url = this.videosArray[video].url.slice(0, indexOfEl);
-
+              this.newVideo = new Video(this.videosArray[video].name,this.videosArray[video].url,this.videosArray[video].type,this.videosArray[video].description,this.videosArray[video].id);
+              this.newVideosArray.push(this.newVideo);
             } else {
               // ERROR
             }
-            this.newVideo = new VideoFinale(this.videosArray[video]);
-              this.newVideosArray.push(this.newVideo);
+            
+
+
             break;
         }
 
@@ -117,4 +118,6 @@ export class ServerHandelerComponent implements OnInit {
   findUrl() {
 
   }
+
+ 
 }
