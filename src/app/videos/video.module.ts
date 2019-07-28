@@ -16,6 +16,27 @@ export class Video {
     this.url = url;
     // this.correctedUrl = correctedUrl;
     this.type = type;
+    
   }
   
 }
+
+export class VideoFinale {
+  public name: string;
+  public url: string; // Dont need id? maybe just url?
+  public description: string;
+  public type: string;
+  public id: string;
+  // public correctedUrl: string;
+
+  constructor(video: Video){
+    this.name = video.name;
+    this.description =  video.description;
+    this.url =  video.url;
+    // this.correctedUrl = correctedUrl;
+    this.type =  video.type;
+  }
+
+  
+}
+

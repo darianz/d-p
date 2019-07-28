@@ -32,15 +32,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
-
-
-
-
-
-// VIDEOS
-import { YoutubeVideosComponent } from './videos/youtube-videos/youtube-videos.component';
-import { VimeoVideosComponent } from './videos/vimeo-videos/vimeo-videos.component';
-import { FacebookVideosComponent } from './videos/facebook-videos/facebook-videos.component';
 import { VideosComponent } from './videos/videos.component';
 //End OF VIDEOS
 
@@ -62,9 +53,6 @@ import { ServerHandelerComponent } from './server-handeler/server-handeler.compo
     NotFoundComponent,
     LoginComponent,
     BusinessComponent,
-    YoutubeVideosComponent,
-    VimeoVideosComponent,
-    FacebookVideosComponent,
     VideosComponent,
     VideoEditComponent,
     LoadingSpinnerComponent,

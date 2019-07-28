@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServerHandelerService } from '../shared/server-handeler.service';
-import { Video } from '../videos/video.module';
-import { YoutubeVideosComponent } from '../videos/youtube-videos/youtube-videos.component';
+import { Video, VideoFinale } from '../videos/video.module';
+
 import { DomSanitizer } from '@angular/platform-browser';
-import { VimeoVideosComponent } from '../videos/vimeo-videos/vimeo-videos.component';
-import { stringify } from '@angular/core/src/util';
-import { FacebookVideosComponent } from '../videos/facebook-videos/facebook-videos.component';
+
+
+
 
 
 
@@ -15,6 +15,10 @@ import { FacebookVideosComponent } from '../videos/facebook-videos/facebook-vide
   styleUrls: ['./server-handeler.component.scss']
 })
 export class ServerHandelerComponent implements OnInit {
+  youtubePrefix: string = 'https://www.youtube.com/embed/';
+  vimeoPrefix: string = 'https://player.vimeo.com/video/';
+  
+
   newVideo: Video;
   videosArray: Video[] = [];
   newVideosArray: Video[] = [];
@@ -61,7 +65,8 @@ export class ServerHandelerComponent implements OnInit {
           case 'youtube':
             if (this.videosArray[video].url.includes('https://www.youtube.com/watch?v=')) {
               this.videosArray[video].url = this.videosArray[video].url.slice(32);
-              this.newVideo = new YoutubeVideosComponent(this.videosArray[video]);
+              this.videosArray[video].url = this.youtubePrefix + this.videosArray[video].url;
+              this.newVideo = new VideoFinale(this.videosArray[video]);
               this.newVideosArray.push(this.newVideo);
             } else {
               // ERROR 
@@ -70,7 +75,8 @@ export class ServerHandelerComponent implements OnInit {
           case 'vimeo':
             if (this.videosArray[video].url.includes('https://vimeo.com/')) {
               this.videosArray[video].url = this.videosArray[video].url.slice(18);
-              this.newVideo = new VimeoVideosComponent(this.videosArray[video]);
+              this.videosArray[video].url = this.vimeoPrefix + this.videosArray[video].url
+              this.newVideo = new VideoFinale(this.videosArray[video]);
               this.newVideosArray.push(this.newVideo);
             } else {
               // ERROR
@@ -90,7 +96,7 @@ export class ServerHandelerComponent implements OnInit {
             } else {
               // ERROR
             }
-            this.newVideo = new FacebookVideosComponent(this.videosArray[video]);
+            this.newVideo = new VideoFinale(this.videosArray[video]);
               this.newVideosArray.push(this.newVideo);
             break;
         }
