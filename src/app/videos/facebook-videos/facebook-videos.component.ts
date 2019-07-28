@@ -7,14 +7,20 @@ import { Video } from '../video.module';
   styleUrls: ['./facebook-videos.component.scss']
 })
 export class FacebookVideosComponent implements OnInit {
-  video: Video;
-  
-  constructor(newVideo: Video) {
-    this.video.name = newVideo.name;
-    this.video.description = newVideo.description;
-    this.video.url = newVideo.url;
-    
-   }
+  name: string;
+  description: string;
+  id: string;
+  type: string;
+  url: string;
+
+  constructor(video: Video) { 
+    this.name = video.name;
+    this.description = video.description;
+    this.id = video.id;
+    this.url = video.url;
+    this.type = video.type;
+
+  }
 
   ngOnInit() {
   }

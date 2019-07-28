@@ -1,14 +1,11 @@
-<p>youtube-videos works!</p>
-<div class="youtube-video_container">
-    <div class="video-title">
-            <h1>Name Of Video</h1>
-    </div>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/9GCZ0HMwI6o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   
-     <div class="video-desc">
-            <p>זהו סרטון מהמם על משפחה קטנה שחיה באלפיים ועל הקשיים היום יומיים המעורבים בכך</p>
-     </div>
-    
+<div class="video_container">
+        <div class="video-title">
+                <h1>{{ name }}</h1>
+        </div>
+        <iframe width="560" height="315" src="{{ url }}" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <div class="video-desc">
+                <p>{{ description }}</p>
+        </div>
 </div>
-

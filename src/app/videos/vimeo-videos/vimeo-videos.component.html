@@ -1,8 +1,11 @@
-
-
-<div class="vimeo-video_container">
-    <iframe  src="https://player.vimeo.com/video/226282188" width="640" height="360" frameborder="0" allowfullscreen
-        allow="autoplay; encrypted-media"></iframe>
-
-        
+<div class="video_container">
+    <div class="video-title">
+            <h1>{{ name }}</h1>
+    </div>
+    <iframe width="560" height="315" src="{{ url }}" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    <div class="video-desc">
+            <p>{{ description }}</p>
+    </div>
 </div>
