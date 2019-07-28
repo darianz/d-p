@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Video } from '../videos/video.module';
+import { Component, OnInit, Input } from '@angular/core';
+import { Video, Videos } from '../videos/video.module';
 
 
 @Component({
@@ -15,16 +15,12 @@ export class VideosComponent implements OnInit {
 
   constructor() {
 
+  }
 
-   }
-   
-   ngOnInit() {
-      
-    }
-    
-    addNewVideo() {
-      
-    }
-    
+  ngOnInit() {
+
+  }
+
+
     
 }

@@ -16,6 +16,7 @@ export class VideoEditComponent implements OnInit {
   url: string;
   type: string;
   description: string;
+  page: string;
   submited = false;
 
   // videosArray = [];
@@ -40,6 +41,7 @@ export class VideoEditComponent implements OnInit {
     this.type = this.loginForm.value.type;
     this.url = this.loginForm.value.ID;
     this.description = this.loginForm.value.description;
+    this.page = this.loginForm.value.page
     // console.log(this.loginForm.value);
 
     this.ServerHandelerService.storeVideo(this.loginForm.value)

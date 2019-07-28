@@ -17,11 +17,11 @@ export class ServerHandelerComponent implements OnInit {
   youtubePrefix: string = 'https://www.youtube.com/embed/';
   vimeoPrefix: string = 'https://player.vimeo.com/video/';
   
-
-  newVideo: Video;
   videosArray: Video[] = [];
+  
+  newVideo: Video;
   newVideosArray: Video[] = [];
-  prefix: any = '';
+
   constructor(private ServerHandelerService: ServerHandelerService, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
@@ -113,10 +113,6 @@ export class ServerHandelerComponent implements OnInit {
         (response) => console.log(response),
         (error) => console.log(error)
       );
-  }
-
-  findUrl() {
-
   }
 
  
