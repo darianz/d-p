@@ -4,7 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BusinessComponent } from './pages/business/business.component';
 import { WeddingsComponent } from './pages/weddings/weddings.component';
-import { VideoEditComponent } from './pages/video-edit/video-edit.component';
+import { AddVideoComponent } from './pages/add-video/add-video.component';
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'business', component: BusinessComponent},
   {path: 'weddings', component: WeddingsComponent},
-  {path: 'video-edit', component: VideoEditComponent},
+  {path: 'add-video', component: AddVideoComponent},
   
   // {path: 'video-edit', component: VideoEditComponent, canActivate: [LoginGuard]},
   {path: 'not-found', component: NotFoundComponent},

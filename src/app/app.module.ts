@@ -13,7 +13,6 @@ import { WeddingsComponent } from './pages/weddings/weddings.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BusinessComponent } from './pages/business/business.component';
 import { LoginComponent } from './pages/login/login.component';
-import { VideoEditComponent } from './pages/video-edit/video-edit.component';
 
 // END OF PAGES
 
@@ -38,6 +37,7 @@ import { VideosComponent } from './videos/videos.component';
 
 // SERVER
 import { LoginGuard } from './pages/login/login.guard';
+import { AddVideoComponent } from './pages/add-video/add-video.component';
 
 // END OF SERVER
 
@@ -54,9 +54,9 @@ import { LoginGuard } from './pages/login/login.guard';
     LoginComponent,
     BusinessComponent,
     VideosComponent,
-    VideoEditComponent,
     LoadingSpinnerComponent,
     MobileNavComponent,
+    AddVideoComponent,
     
  
   ],

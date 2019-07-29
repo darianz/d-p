@@ -1,14 +1,40 @@
-.video_container{
-    height: auto;
-    // width: 800px;
+.video{
+    display: block;
+    height: 560px;
     background-color: #F3F3F3;
     color: #76726F;
-    margin-top: 10vh;
-
+    padding-top: 5vh;
+    margin-bottom: 10vh; 
     box-shadow: 6px 6px 20px #b2b1b04d;
+    text-align: center;
+
+    &__title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__player {
+        width: 640px; 
+        height: 360px;
+    }
+
+    &__description {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
     
-    @media (min-width: 1500px) {
-        .video__player {
+}
+@media (min-width: 1500px) {
+    .video {
+        height: 780px;
+
+        &__title {
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+
+        &__player {
             width: 960px; 
             height: 540px;
         }
