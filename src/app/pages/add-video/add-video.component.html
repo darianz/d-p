@@ -1,39 +1,39 @@
-<h1>Add Video</h1>
-<label for=""></label>
+<div class="containeer add-video">
+  <h1>הוספת סרטון</h1>
+  <form class="form add-video__form" (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="name">
+      <label for="name">כותרת</label>
+      <input type="text" id="name" class="form__control form-control" ngModel name="name">
+    </div>
 
-<form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
-  <div class="name">
-    <label for="name">Tittle</label>
-    <input type="text" id="name" class="form__control form-control" ngModel name="name">
-  </div>
+    <div class="add-video__form__type">
+      <select ngModel name="type" class="form-control form-control-sm">
+        <option value="youtube">Youtube</option>
+        <option value="vimeo">Vimeo</option>
+        <option value="facebook">Facebook</option>
+        <option value="other">Other</option>
+      </select>
+      <label for="add-video__form__type">סוג</label>
+    </div>
+    <div class="add-video__form__page">
+      <select ngModel name="page" class="form-control form-control-sm">
+        <option value="weddings" selected>Weddings</option>
+        <option value="business">Business</option>
+      </select>
+      <label for="add-video__form__page">עמוד</label>
+    </div>
+    <div class="URL">
+      <label for="URL">כתובת מלאה</label>
+      <input type="text" id="URL" class="form__control form-control" ngModel name="url">
+    </div>
+    <div class="description">
+      <label for="pass">תיאור</label>
+      <input type="textarea" id="description" class="form__control form-control" ngModel name="description">
+    </div>
 
-  <div class="type">
-    <label for="type">Type</label>
-    <select ngModel name="type">
-      <option value="youtube">Youtube</option>
-      <option value="vimeo">Vimeo</option>
-      <option value="facebook">Facebook</option>
-      <option value="other">Other</option>
-    </select>
-  </div>
-  <div class="page">
-    <label for="page">Page</label>
-    <select ngModel name="page">
-      <option value="weddings" selected>Weddings</option>
-      <option value="business">Business</option>
-    </select>
-  </div>
-  <div class="URL">
-    <label for="URL">URL</label>
-    <input type="text" id="URL" class="form__control form-control" ngModel name="url">
-  </div>
-  <div class="description">
-    <label for="pass">Description</label>
-    <input type="textarea" id="description" class="form__control form-control" ngModel name="description">
-  </div>
+    <div class="submit">
+      <button type="submit" class="btn btn-secondary">שלח</button>
+    </div>
+  </form>
 
-  <div class="submit">
-    <button type="submit">Submit</button>
-  </div>
-</form>
-
+</div>
