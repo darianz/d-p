@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VideosService } from './shared/videos.service';
 
 
 @Component({
@@ -8,7 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
+  constructor(private videosService: VideosService) {
+   console.log("APP COMPONENTS CONSTRUCTOR");
+   this.videosService.setVideosFromServer()
    
   }
 

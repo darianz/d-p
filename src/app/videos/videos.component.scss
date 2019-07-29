@@ -1,0 +1,16 @@
+.video_container{
+    height: auto;
+    // width: 800px;
+    background-color: #F3F3F3;
+    color: #76726F;
+    margin-top: 10vh;
+
+    box-shadow: 6px 6px 20px #b2b1b04d;
+    
+    @media (min-width: 1500px) {
+        .video__player {
+            width: 960px; 
+            height: 540px;
+        }
+    }
+}

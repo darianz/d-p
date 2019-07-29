@@ -16,7 +16,7 @@ export class ServerHandelerService {
     return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', video);
   }
 
-  getVideos() {
+  getVideosFromServer() {
     return this.http.get<Videos>('https://dharmaphoto1-bdc44.firebaseio.com/data.json')
     .pipe(
       map((videosData: Videos) => {
@@ -25,13 +25,27 @@ export class ServerHandelerService {
         Object.keys(videosData).forEach((videoId) => {
           videosArray.push({ ...videosData[videoId], id: videoId});
         });
+        this.videos = videosArray; 
         return videosArray;
       })
     );
   }
 
-  
+  getVideos(){
+    return this.videos;
+  }
 
+  
+  // fetchData() {
+  //   this.getVideosFromServer().subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //       return response;
+  //     },
+  //     (error) => console.log(error)
+  //   );
+
+  // }
 
 
 

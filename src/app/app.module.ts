@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import {FormsModule} from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+
 // END OF ANGULAR
 
 // PAGES 
@@ -38,7 +38,7 @@ import { VideosComponent } from './videos/videos.component';
 
 // SERVER
 import { LoginGuard } from './pages/login/login.guard';
-import { ServerHandelerComponent } from './server-handeler/server-handeler.component';
+
 // END OF SERVER
 
 
@@ -57,7 +57,7 @@ import { ServerHandelerComponent } from './server-handeler/server-handeler.compo
     VideoEditComponent,
     LoadingSpinnerComponent,
     MobileNavComponent,
-    ServerHandelerComponent
+    
  
   ],
   imports: [

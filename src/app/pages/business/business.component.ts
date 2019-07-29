@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusinessComponent implements OnInit {
   
-
+  business = 'business';
   constructor() { }
 
   ngOnInit() {
