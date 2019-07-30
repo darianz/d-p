@@ -14,7 +14,7 @@ export class VideosService {
 
   constructor(private serverHandeler: ServerHandelerService) { }
 
-  setVideosFromServer(){
+  getVideosFromServer(){
     this.serverHandeler.getVideosFromServer().subscribe(
       (response) => {
         console.log(response);
@@ -22,6 +22,10 @@ export class VideosService {
       },
       (error) => console.log(error)
     );
+  }
+
+  deleteVideosFromServer(videoId: string){
+    this.serverHandeler.deleteVideoFromServer(videoId);
   }
 
   sortByType(videosArray: Video[]) {

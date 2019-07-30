@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor(private videosService: VideosService) {
    console.log("APP COMPONENTS CONSTRUCTOR");
-   this.videosService.setVideosFromServer()
+   this.videosService.getVideosFromServer()
    
   }
 

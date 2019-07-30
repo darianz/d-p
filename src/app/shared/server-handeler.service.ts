@@ -31,6 +31,15 @@ export class ServerHandelerService {
     );
   }
 
+  deleteVideoFromServer(id: string) {
+    return this.http.delete(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`).subscribe((response) => {
+      console.log( 'the Response from the delete is:' ,response);
+    });
+    
+  }
+
+
+
   getVideos(){
     return this.videos;
   }

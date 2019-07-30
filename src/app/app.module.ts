@@ -29,15 +29,17 @@ import { MobileNavComponent } from './header/mobile-nav/mobile-nav.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
+// Videos
+import { AddVideoComponent } from './pages/add-video/add-video.component';
+import { VideoEditComponent } from './videos/video-edit/video-edit.component';
 import { VideosComponent } from './videos/videos.component';
 //End OF VIDEOS
 
 
 // SERVER
 import { LoginGuard } from './pages/login/login.guard';
-import { AddVideoComponent } from './pages/add-video/add-video.component';
+
+
 
 // END OF SERVER
 
@@ -57,6 +59,7 @@ import { AddVideoComponent } from './pages/add-video/add-video.component';
     LoadingSpinnerComponent,
     MobileNavComponent,
     AddVideoComponent,
+    VideoEditComponent
     
  
   ],

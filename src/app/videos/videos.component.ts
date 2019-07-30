@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, Input, AfterContentChecked, HostListener } from '@angular/core';
 import { Video } from '../videos/video.module';
 import { ServerHandelerService } from '../shared/server-handeler.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { VideosService } from '../shared/videos.service';
+import { VideoEditComponent } from './video-edit/video-edit.component';
 
 
 @Component({
@@ -13,7 +14,10 @@ import { VideosService } from '../shared/videos.service';
 })
 export class VideosComponent implements OnInit, AfterContentChecked {
   @Input()page: string;
+
   videosArray : Video[] = [];
+  serverHendelerService: any;
+  confirmAnswer: boolean;
   
   constructor(private serverService: ServerHandelerService, private videosService: VideosService, public sanitizer: DomSanitizer,) {
     
@@ -32,14 +36,16 @@ export class VideosComponent implements OnInit, AfterContentChecked {
 
     console.log('Videos Array From Videos Component',this.videosArray);
   }
+  
 
-  onEdit() {
-    
-  }
-
+   
   onDelete(id) {
-    console.log(id);
-    // firebase.database().ref('data/' + id).remove();
+    this.confirmAnswer = confirm('Are you sure you want to delete?');
+    if (this.confirmAnswer){
+      this.videosService.deleteVideosFromServer(id);
+      location.reload();
+    }
+   
   }
 
 
