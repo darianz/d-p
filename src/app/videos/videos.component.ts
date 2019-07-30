@@ -33,8 +33,13 @@ export class VideosComponent implements OnInit, AfterContentChecked {
     console.log('Videos Array From Videos Component',this.videosArray);
   }
 
-  changePage() {
+  onEdit() {
     
+  }
+
+  onDelete(id) {
+    console.log(id);
+    // firebase.database().ref('data/' + id).remove();
   }
 
 
