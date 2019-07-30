@@ -14,6 +14,13 @@ export class VideosService {
 
   constructor(private serverHandeler: ServerHandelerService) { }
 
+  editVideoOnServer(id, video) {
+    this.serverHandeler.editVideoOnServer(id, video).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    )
+  }
+
   getVideosFromServer(){
     this.serverHandeler.getVideosFromServer().subscribe(
       (response) => {

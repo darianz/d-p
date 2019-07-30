@@ -6,7 +6,8 @@
         frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
       <div class="video__description">{{ video.description }}</div>
       <div class="buttons">
-        <button class="btn btn-primary" (click)="onEdit()">Edit</button><button class="btn btn-danger" (click)="onDelete(video.id)">Delete</button>
+        <button class="btn btn-primary" (click)="onEdit()">{{!!EditButtonContent ? 'בטל' : 'ערוך'}}</button><button class="btn btn-danger" (click)="onDelete(video.id)">Delete</button>
+        <app-video-edit [seen] = 'showEditForm' [video]='video'></app-video-edit>
       </div>
     </li>
   </ul>

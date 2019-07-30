@@ -1,39 +1,38 @@
-<div class="container edit-video" *ngIf = "clicked">
+<div class="container edit-video" *ngIf = "seen">
   <h1>עריכת סרטון</h1>
   <form class="form edit-video__form" (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="name">
       <label for="name">כותרת</label>
-      <input type="text" value='video.name' id="name" class="form__control form-control" ngModel name="name">
+      <input type="text" value='{{ video.name }}' id="name" class="form__control form-control" ngModel name="name">
     </div>
 
     <div class="edit-video__form__type">
-      <select ngModel name="type" class="form-control form-control-sm">
-        <option  value="youtube">Youtube</option> <!-- NgSelected="function(video.type)" ||  ng-selected="video.type"-->
-        <option value="vimeo">Vimeo</option>
-        <option value="facebook">Facebook</option>
-        <option value="other">Other</option>
+      <select ngModel name="type" class="form-control form-control-sm" [(ngModel)]='video.type'>
+        <option value="youtube">Youtube</option> <!-- NgSelected="function(video.type)" ||  ng-selected="video.type"-->
+        <option  value="vimeo">Vimeo</option>
+        <option  value="facebook">Facebook</option>
+        <option  value="other">Other</option>
       </select>
       <label for="edit-video__form__type">סוג</label>
     </div>
     <div class="edit-video__form__page">
-      <select ngModel name="page" class="form-control form-control-sm">
-        <option value="weddings" selected>Weddings</option>
+      <select ngModel name="page" class="form-control form-control-sm" [(ngModel)]='video.page'>
+        <option value="weddings">Weddings</option>
         <option value="business">Business</option>
       </select>
       <label for="edit-video__form__page">עמוד</label>
     </div>
     <div class="URL">
       <label for="URL">כתובת מלאה</label>
-      <input type="text" vlaue="video.url" id="URL" class="form__control form-control" ngModel name="url">
+      <input type="text" value="{{ video.url }}" id="URL" class="form__control form-control" ngModel name="url">
     </div>
     <div class="description">
       <label for="pass">תיאור</label>
-      <input type="textarea" value="video.description" id="description" class="form__control form-control" ngModel name="description">
+      <input type="textarea" value="{{ video.description }}" id="description" class="form__control form-control" ngModel name="description">
     </div>
 
     <div class="submit">
       <button type="submit" class="btn btn-secondary">ערוך</button>
-      <button class="btn btn-primary">ביטול</button>
     </div>
   </form>
 

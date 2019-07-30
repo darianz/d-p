@@ -38,6 +38,10 @@ export class ServerHandelerService {
     
   }
 
+  editVideoOnServer(id: string, video: Video) {
+    return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, video);
+  }
+
 
 
   getVideos(){

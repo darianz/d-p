@@ -14,7 +14,8 @@ import { VideoEditComponent } from './video-edit/video-edit.component';
 })
 export class VideosComponent implements OnInit, AfterContentChecked {
   @Input()page: string;
-
+  showEditForm = false;
+  EditButtonContent = false;
   videosArray : Video[] = [];
   serverHendelerService: any;
   confirmAnswer: boolean;
@@ -37,7 +38,11 @@ export class VideosComponent implements OnInit, AfterContentChecked {
     console.log('Videos Array From Videos Component',this.videosArray);
   }
   
-
+  onEdit() {
+    console.log("onEdit clicked");
+    this.showEditForm = !this.showEditForm;
+    this.EditButtonContent = !this.EditButtonContent;
+  }
    
   onDelete(id) {
     this.confirmAnswer = confirm('Are you sure you want to delete?');
