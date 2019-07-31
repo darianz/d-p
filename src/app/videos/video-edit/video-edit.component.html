@@ -1,6 +1,6 @@
-<div class="container edit-video">
+<div class="container edit-video" *ngIf="!submited">
   <h1>עריכת סרטון</h1>
-  <form class="form edit-video__form" (ngSubmit)="onSubmit()" #f="ngForm">
+  <form class="form edit-video__form" (ngSubmit)="onSubmit()" #f="ngForm" >
     <div class="name">
       <label for="name">כותרת</label>
       <input type="text" name="name" class="form__control form-control" ngModel [(ngModel)] = "name">
@@ -24,7 +24,7 @@
     </div>
     <div class="url">
       <label for="url">כתובת מלאה</label>
-      <input type="text" name="url" class="form__control form-control" ngModel [(ngModel)] = "url">
+      <input type="text" name="url" class="form__control form-control" ngModel [(ngModel)]='video.url'>
     </div>
     <div class="description">
       <label for="pass">תיאור</label>

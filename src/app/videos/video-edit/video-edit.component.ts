@@ -34,8 +34,9 @@ export class VideoEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submited = true;
 
+    this.submited = true;
+   
     this.name = this.form.value.name;
     this.type = this.form.value.type;
     this.url = this.form.value.url;

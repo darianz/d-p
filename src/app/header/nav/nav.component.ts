@@ -17,11 +17,13 @@ export class NavComponent implements OnInit {
   ngOnInit() {
    this.userSub =  this.loginService.user.subscribe(user => {
     this.isLogged = !user ? false : true;
+    this.loginService.setUserLogged(this.isLogged);
    });
   }
 
   onLogout(){
     this.loginService.logout();
+    
   }
   ngOnDestroy() {
     this.userSub.unsubscribe();

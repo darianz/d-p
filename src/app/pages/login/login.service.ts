@@ -20,7 +20,7 @@ export interface AuthResponseData {
 @Injectable({ providedIn: 'root' })
 export class LoginService {
   user = new Subject<User>();
-  
+  isLogged: boolean;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -29,6 +29,13 @@ export class LoginService {
     this.router.navigate(['/home']);
   }
 
+  setUserLogged(isLogged : boolean){
+    this.isLogged = isLogged;
+  }
+
+  getUserLogged() {
+    return this.isLogged;
+  }
 
   login(email: string, password: string) {
     return this.http

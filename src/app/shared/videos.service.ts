@@ -25,7 +25,8 @@ export class VideosService {
     this.serverHandeler.getVideosFromServer().subscribe(
       (response) => {
         console.log(response);
-        this.serverVideosArray =response;
+        this.serverVideosArray = response;
+        this.videoToPage();
       },
       (error) => console.log(error)
     );
@@ -34,47 +35,49 @@ export class VideosService {
   deleteVideosFromServer(videoId: string){
     this.serverHandeler.deleteVideoFromServer(videoId);
   }
+  sortValidation(url: string){
+    if(!url.includes('https://www.youtube.com/embed/')) {  //WARNING makes infinate loops
+      return false;
+    }
+  }
 
-  sortByType(videosArray: Video[]) {
-    if (videosArray.length > 0) {
-
-      for (const video in videosArray) {
-        switch (videosArray[video].type) {
+  fixUrl(video: Video) {
+    if (video) {
+        switch (video.type) {
           case 'youtube':
-            if (videosArray[video].url.includes('https://www.youtube.com/watch?v=')) {
-              videosArray[video].url = this.youtubeVideoHandle(videosArray[video].url);
-              this.pushToPageArray(videosArray[video]);
+            if(video.url.includes('https://www.youtube.com/watch?v=')) {  //WARNING makes infinate loops
+            video.url = this.youtubeVideoHandle(video.url);  
+            // this.pushToPageArray(video);
+            return video;
             }
-            // else if(videosArray[video].url.includes('https://www.youtube.com/embed/')) {  //WARNING makes infinate loops
-            //   this.pushToPageArray(videosArray[video]);
-            // }
             else {
-              
+              // ERROR HANDELING 
             }
             break;
           case 'vimeo':
-            if (videosArray[video].url.includes('https://vimeo.com/')) {
-              videosArray[video].url = this.vimeoVideoHandle(videosArray[video].url);
-              this.pushToPageArray(videosArray[video]);
+            if (video.url.includes('https://vimeo.com/')) {
+              video.url = this.vimeoVideoHandle(video.url);
+              // this.pushToPageArray(video);
+              return video;
             } 
-            // else if (videosArray[video].url.includes('https://player.vimeo.com/video/')) {
-            //   this.pushToPageArray(videosArray[video]);
+            // else if (video.url.includes('https://player.vimeo.com/video/')) {
+            //   this.pushToPageArray(video);
             // }
             else {
               
             }
             break;
           case 'facebook':
-            if (videosArray[video].url.includes('<iframe src="https://www.facebook.com/')) {
-              videosArray[video].url = this.facebookVideoHandle(videosArray[video].url);
-              this.pushToPageArray(videosArray[video]);
-         
+            if (video.url.includes('<iframe src="https://www.facebook.com/')) {
+              video.url = this.facebookVideoHandle(video.url);
+              // this.pushToPageArray(video);
+              return video;
             } else {
               // ERROR
             }
             break;
         }
-      }
+      
     }
     else { console.log('no data') }
   } // END OF sortByType
@@ -101,13 +104,16 @@ export class VideosService {
     return url;
   }
 
-  pushToPageArray(video: Video) {
-    if (video.page === 'weddings') {
-      this.weddingsPagesVideosArray.push(video);
-    } else {
-      this.businessPagesVideosArray.push(video);
+  videoToPage() {
+    for (let video of this.serverVideosArray) {
+      if (video.page === 'weddings') {
+        this.weddingsPagesVideosArray.push(video);
+      } else {
+        this.businessPagesVideosArray.push(video);
+      }
     }
   }
+
 
 
   getPageVideos(page: string) {

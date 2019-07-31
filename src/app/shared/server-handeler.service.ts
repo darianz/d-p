@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Video, Videos } from '../videos/video.module';
+import { VideosService } from './videos.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,17 @@ export class ServerHandelerService {
   
   videos: Video[] = []
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ,private videosService: VideosService) { }
   
   storeVideo(video: Video) {
-    return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', video);
+    if (this.videosService.sortValidation(video.url) == false) {
+       let newVideo = this.videosService.fixUrl(video);
+       return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', newVideo);
+    }else {
+      return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', video);
+    }
+    
+    
   }
 
   getVideosFromServer() {
@@ -39,7 +47,15 @@ export class ServerHandelerService {
   }
 
   editVideoOnServer(id: string, video: Video) {
-    return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, video);
+    // validation if SortByType is NEEDED
+    if (this.videosService.sortValidation(video.url) == false) {
+      let newVideo = this.videosService.fixUrl(video);
+      return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, newVideo);
+   }else {
+      return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, video);
+   }
+    // ACTIVATE SortBt Type if NEEDED
+    // return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, video);
   }
 
 
