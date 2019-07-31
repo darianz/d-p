@@ -5,9 +5,9 @@
       <iframe class="video__player" [src]="sanitizer.bypassSecurityTrustResourceUrl(video.url)" width="640" height="360"
         frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
       <div class="video__description">{{ video.description }}</div>
-      <div class="buttons">
+      <div class="buttons" *ngIf="isLogged">
         <button class="btn btn-primary" (click)="onEdit()">{{!!EditButtonContent ? 'בטל' : 'ערוך'}}</button><button class="btn btn-danger" (click)="onDelete(video.id)">Delete</button>
-        <app-video-edit [seen] = 'showEditForm' [video]='video'></app-video-edit>
+        <app-video-edit [video]='video'  *ngIf = "showEditForm"></app-video-edit>
       </div>
     </li>
   </ul>

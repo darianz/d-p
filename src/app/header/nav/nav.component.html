@@ -5,6 +5,7 @@
     <li class="link" routerLinkActive="active"><a routerLink="/business">עסקים</a></li>
     <li class="link" routerLinkActive="active"><a routerLink="/weddings">חתונות</a></li>
     <li class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="#" routerLink="/home">בית</a></li>
+    <li class="link" *ngIf="!isLogged" routerLinkActive="active" ><a routerLink="/login" >התחבר</a></li>
     <button class="btn btn-primary" *ngIf="isLogged" (click)="onLogout()">Logout</button>
   </ul>
 
@@ -12,7 +13,6 @@
 
 <!--
 
-    <li class="link" *ngIf="!isLogged" routerLinkActive="active" ><a routerLink="/login" >התחבר</a></li>
     <li class="link" routerLinkActive="active" *ngIf="isLogged"><a routerLink="/video-edit">ערוך</a></li>
 
 -->

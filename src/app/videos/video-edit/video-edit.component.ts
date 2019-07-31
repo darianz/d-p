@@ -12,7 +12,7 @@ export class VideoEditComponent implements OnInit {
 
   @ViewChild('f') form: NgForm;
   @Input() video: Video;
-  @Input() seen = false;
+  // @Input() seen = false;
   name: string;
   url: string;
   type: string;
@@ -24,7 +24,9 @@ export class VideoEditComponent implements OnInit {
   constructor(private videosService: VideosService) { }
   
   ngOnInit() {
-    
+    this.name = this.video.name;
+    this.url = this.video.url;
+    this.description = this.video.description;
   }
   checkType(type: string) {
     return type === this.video.type
@@ -36,12 +38,12 @@ export class VideoEditComponent implements OnInit {
 
     this.name = this.form.value.name;
     this.type = this.form.value.type;
-    this.url = this.form.value.ID;
+    this.url = this.form.value.url;
     this.description = this.form.value.description;
     this.page = this.form.value.page
     console.log(this.form.value);
 
-    // this.videosService.editVideoOnServer(this.video.id, this.form.value);
+    this.videosService.editVideoOnServer(this.video.id, this.form.value);
   }
 
  

@@ -44,19 +44,24 @@ export class VideosService {
             if (videosArray[video].url.includes('https://www.youtube.com/watch?v=')) {
               videosArray[video].url = this.youtubeVideoHandle(videosArray[video].url);
               this.pushToPageArray(videosArray[video]);
-             
-            } else {
-              // ERROR 
+            }
+            // else if(videosArray[video].url.includes('https://www.youtube.com/embed/')) {  //WARNING makes infinate loops
+            //   this.pushToPageArray(videosArray[video]);
+            // }
+            else {
+              
             }
             break;
           case 'vimeo':
             if (videosArray[video].url.includes('https://vimeo.com/')) {
-             
               videosArray[video].url = this.vimeoVideoHandle(videosArray[video].url);
               this.pushToPageArray(videosArray[video]);
+            } 
+            // else if (videosArray[video].url.includes('https://player.vimeo.com/video/')) {
+            //   this.pushToPageArray(videosArray[video]);
+            // }
+            else {
               
-            } else {
-              // ERROR
             }
             break;
           case 'facebook':

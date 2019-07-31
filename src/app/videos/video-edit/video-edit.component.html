@@ -1,9 +1,9 @@
-<div class="container edit-video" *ngIf = "seen">
+<div class="container edit-video">
   <h1>עריכת סרטון</h1>
   <form class="form edit-video__form" (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="name">
       <label for="name">כותרת</label>
-      <input type="text" value='{{ video.name }}' id="name" class="form__control form-control" ngModel name="name">
+      <input type="text" name="name" class="form__control form-control" ngModel [(ngModel)] = "name">
     </div>
 
     <div class="edit-video__form__type">
@@ -22,13 +22,13 @@
       </select>
       <label for="edit-video__form__page">עמוד</label>
     </div>
-    <div class="URL">
-      <label for="URL">כתובת מלאה</label>
-      <input type="text" value="{{ video.url }}" id="URL" class="form__control form-control" ngModel name="url">
+    <div class="url">
+      <label for="url">כתובת מלאה</label>
+      <input type="text" name="url" class="form__control form-control" ngModel [(ngModel)] = "url">
     </div>
     <div class="description">
       <label for="pass">תיאור</label>
-      <input type="textarea" value="{{ video.description }}" id="description" class="form__control form-control" ngModel name="description">
+      <input type="textarea" name="description" class="form__control form-control" ngModel [(ngModel)] = "description">
     </div>
 
     <div class="submit">
