@@ -9,18 +9,13 @@ import { VideosService } from './videos.service';
 })
 export class ServerHandelerService {
   
-  videos: Video[] = []
+  // videos: Video[] = []
   
-  constructor(private http: HttpClient ,private videosService: VideosService) { }
+  constructor(private http: HttpClient) { }
   
   storeVideo(video: Video) {
-    if (this.videosService.sortValidation(video.url) == false) {
-       let newVideo = this.videosService.fixUrl(video);
-       return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', newVideo);
-    }else {
-      return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', video);
-    }
-    
+  
+    return this.http.post('https://dharmaphoto1-bdc44.firebaseio.com/data.json', video);
     
   }
 
@@ -33,7 +28,7 @@ export class ServerHandelerService {
         Object.keys(videosData).forEach((videoId) => {
           videosArray.push({ ...videosData[videoId], id: videoId});
         });
-        this.videos = videosArray; 
+        // this.videos = videosArray; 
         return videosArray;
       })
     );
@@ -47,22 +42,16 @@ export class ServerHandelerService {
   }
 
   editVideoOnServer(id: string, video: Video) {
-    // validation if SortByType is NEEDED
-    if (this.videosService.sortValidation(video.url) == false) {
-      let newVideo = this.videosService.fixUrl(video);
-      return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, newVideo);
-   }else {
+    
       return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, video);
-   }
-    // ACTIVATE SortBt Type if NEEDED
-    // return this.http.put(`https://dharmaphoto1-bdc44.firebaseio.com/data/${id}.json`, video);
+  
   }
 
 
 
-  getVideos(){
-    return this.videos;
-  }
+  // getVideos(){
+  //   return this.videos;
+  // }
 
   
   // fetchData() {

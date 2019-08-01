@@ -35,7 +35,7 @@ export class VideosComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked() {
     console.log('page is ' + this.page);
-    this.videosArray = this.serverService.getVideos(); // Need to change the videosArray to the wanted page array, not from serverService, from videoService
+    // this.videosArray = this.serverService.getVideos(); // Need to change the videosArray to the wanted page array, not from serverService, from videoService
     // this.videosService.sortByType(this.videosArray);
     this.videosArray = this.videosService.getPageVideos(this.page);
 

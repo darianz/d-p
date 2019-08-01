@@ -3,20 +3,27 @@
   <form class="form add-video__form" (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="name">
       <label for="name">כותרת</label>
-      <input type="text" id="name" class="form__control form-control" ngModel name="name">
+      <div *ngIf = "!name.valid && name.touched">
+        <span class="help-block" >יש להוסיף כותרת </span>
+      </div>
+      
+      <input type="text" id="name" class="form__control form-control" ngModel name="name" required #name="ngModel">
     </div>
 
     <div class="add-video__form__type">
-      <select ngModel name="type" class="form-control form-control-sm">
-        <option value="youtube">Youtube</option>
+      <select ngModel name="type" class="form-control form-control-sm" required #type="ngModel"> 
+        <option value="youtube"  >Youtube</option>
         <option value="vimeo">Vimeo</option>
         <option value="facebook">Facebook</option>
         <option value="other">Other</option>
       </select>
+      <div *ngIf = "!type.valid && type.touched">
+        <span class="help-block" >יש לבחור סוג  </span>
+      </div>
       <label for="add-video__form__type">סוג</label>
     </div>
     <div class="add-video__form__page">
-      <select ngModel name="page" class="form-control form-control-sm">
+      <select ngModel name="page" class="form-control form-control-sm" required>
         <option value="weddings" selected>Weddings</option>
         <option value="business">Business</option>
       </select>
@@ -24,15 +31,15 @@
     </div>
     <div class="URL">
       <label for="URL">כתובת מלאה</label>
-      <input type="text" id="URL" class="form__control form-control" ngModel name="url">
+      <input type="text" id="URL" class="form__control form-control" ngModel name="url" required>
     </div>
     <div class="description">
       <label for="pass">תיאור</label>
-      <input type="textarea" id="description" class="form__control form-control" ngModel name="description">
+      <input type="textarea" id="description" class="form__control form-control" ngModel name="description" required>
     </div>
 
     <div class="submit">
-      <button type="submit" class="btn btn-secondary">שלח</button>
+      <button type="submit" class="btn btn-secondary" [disabled]="!f.valid">שלח</button>
     </div>
   </form>
 

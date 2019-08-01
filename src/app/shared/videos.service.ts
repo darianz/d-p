@@ -7,8 +7,8 @@ import { ServerHandelerService } from './server-handeler.service';
 })
 export class VideosService {
   
-  serverVideosArray: Video[] = [];
-  
+  edited = false;
+
   weddingsPagesVideosArray: Video[] = [];
   businessPagesVideosArray: Video[] = [];
 
@@ -16,7 +16,11 @@ export class VideosService {
 
   editVideoOnServer(id, video) {
     this.serverHandeler.editVideoOnServer(id, video).subscribe(
-      (response) => console.log(response),
+      (response) => {
+        this.edited = true;
+        console.log("this.edited: ", this.edited);
+        
+      },
       (error) => console.log(error)
     )
   }
@@ -25,8 +29,10 @@ export class VideosService {
     this.serverHandeler.getVideosFromServer().subscribe(
       (response) => {
         console.log(response);
-        this.serverVideosArray = response;
-        this.videoToPage();
+        this.edited = false;
+        // this.serverVideosArray = response;
+        this.videoToPage(response);
+        
       },
       (error) => console.log(error)
     );
@@ -35,30 +41,34 @@ export class VideosService {
   deleteVideosFromServer(videoId: string){
     this.serverHandeler.deleteVideoFromServer(videoId);
   }
+
   sortValidation(url: string){
-    if(!url.includes('https://www.youtube.com/embed/')) {  //WARNING makes infinate loops
+    console.log ('URL from sortValidation' + url);
+    if(url.includes('https://www.youtube.com/embed/')) {  //WARNING makes infinate loops
       return false;
     }
+    return true;
   }
 
-  fixUrl(video: Video) {
-    if (video) {
-        switch (video.type) {
+  fixUrl(url: string, type: string) {
+    if (url && type) {
+        switch (type) {
           case 'youtube':
-            if(video.url.includes('https://www.youtube.com/watch?v=')) {  //WARNING makes infinate loops
-            video.url = this.youtubeVideoHandle(video.url);  
+              console.log ('URL from fixUrl' + url);
+            if(url.includes('https://www.youtube.com/watch?v=')) {  //WARNING makes infinate loops
+            url = this.youtubeVideoHandle(url);  
             // this.pushToPageArray(video);
-            return video;
+            return url;
             }
             else {
               // ERROR HANDELING 
             }
             break;
           case 'vimeo':
-            if (video.url.includes('https://vimeo.com/')) {
-              video.url = this.vimeoVideoHandle(video.url);
+            if (url.includes('https://vimeo.com/')) {
+              url = this.vimeoVideoHandle(url);
               // this.pushToPageArray(video);
-              return video;
+              return url;
             } 
             // else if (video.url.includes('https://player.vimeo.com/video/')) {
             //   this.pushToPageArray(video);
@@ -68,10 +78,10 @@ export class VideosService {
             }
             break;
           case 'facebook':
-            if (video.url.includes('<iframe src="https://www.facebook.com/')) {
-              video.url = this.facebookVideoHandle(video.url);
+            if (url.includes('<iframe src="https://www.facebook.com/')) {
+              url = this.facebookVideoHandle(url);
               // this.pushToPageArray(video);
-              return video;
+              return url;
             } else {
               // ERROR
             }
@@ -104,14 +114,15 @@ export class VideosService {
     return url;
   }
 
-  videoToPage() {
-    for (let video of this.serverVideosArray) {
+  videoToPage(serverVideoArray) {
+    for (let video of serverVideoArray) {
       if (video.page === 'weddings') {
         this.weddingsPagesVideosArray.push(video);
       } else {
         this.businessPagesVideosArray.push(video);
       }
     }
+    
   }
 
 
