@@ -14,12 +14,11 @@ export class VideosService {
 
   constructor(private serverHandeler: ServerHandelerService) { }
 
-  editVideoOnServer(id, video) {
+  editVideoOnServer(id, video, success: Function) {
+    console.log('success:', success)
     this.serverHandeler.editVideoOnServer(id, video).subscribe(
       (response) => {
-        this.edited = true;
-        console.log("this.edited: ", this.edited);
-        
+        success();
       },
       (error) => console.log(error)
     )

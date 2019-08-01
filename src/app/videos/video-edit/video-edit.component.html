@@ -7,7 +7,7 @@
     </div>
 
     <div class="edit-video__form__type">
-      <select ngModel name="type" class="form-control form-control-sm" [(ngModel)]='video.type'>
+      <select ngModel name="type" class="form-control form-control-sm" [(ngModel)]='type'>
         <option value="youtube">Youtube</option> <!-- NgSelected="function(video.type)" ||  ng-selected="video.type"-->
         <option  value="vimeo">Vimeo</option>
         <option  value="facebook">Facebook</option>
@@ -16,7 +16,7 @@
       <label for="edit-video__form__type">סוג</label>
     </div>
     <div class="edit-video__form__page">
-      <select ngModel name="page" class="form-control form-control-sm" [(ngModel)]='video.page'>
+      <select ngModel name="page" class="form-control form-control-sm" [(ngModel)]='page'>
         <option value="weddings">Weddings</option>
         <option value="business">Business</option>
       </select>
@@ -24,11 +24,11 @@
     </div>
     <div class="url">
       <label for="url">כתובת מלאה</label>
-      <input type="text" name="url" class="form__control form-control" ngModel [(ngModel)]='video.url'>
+      <input type="text" name="url" class="form__control form-control" ngModel [(ngModel)]='url'>
     </div>
     <div class="description">
       <label for="pass">תיאור</label>
-      <input type="textarea" name="description" class="form__control form-control" ngModel [(ngModel)] = "description">
+      <input type="textarea" name="description" class="form__control form-control" ngModel [(ngModel)]="description">
     </div>
 
     <div class="submit">

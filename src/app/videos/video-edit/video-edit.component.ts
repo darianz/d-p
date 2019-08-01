@@ -20,7 +20,7 @@ export class VideoEditComponent implements OnInit {
   description: string;
   page: string;
   
-  @Input() changesDone  = false;
+  changesDone  = false;
   submited = false;
 
   
@@ -28,16 +28,24 @@ export class VideoEditComponent implements OnInit {
   
   ngOnInit() {
     this.name = this.video.name;
+    this.type = this.video.type;
+    this.page = this.video.page;
     this.url = this.video.url;
     this.description = this.video.description;
     console.log ('ID OF THE VIDEO ' , this.video.id);
   }
+  
   checkType(type: string) {
     return type === this.video.type
     
   }
 
   onSubmit() {
+
+    const onSuccess = () => {
+      this.changesDone = true;
+      console.log('this.changesDone:', this.changesDone)
+    };
 
     this.submited = true;
    
@@ -53,10 +61,6 @@ export class VideoEditComponent implements OnInit {
     console.log('THE VIDEO ' ,this.video);
     this.edittedVideo = new Video(this.name, this.url, this.type, this.description, this.video.id, this.page)
 
-    this.videosService.editVideoOnServer(this.video.id, this.edittedVideo);
-    console.log(this.videosService.edited);
-    this.changesDone = this.videosService.edited;
+    this.videosService.editVideoOnServer(this.video.id, this.edittedVideo, onSuccess);
   }
-
- 
 }

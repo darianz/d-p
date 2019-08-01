@@ -19,6 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 // SHARED
 import { ServerHandelerService } from './shared/server-handeler.service';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { SafePipe } from './shared/utils/pipes/safe.pipe';
 //End OF SERVICES
 
 // HEADER
@@ -33,6 +34,7 @@ import { AppComponent } from './app.component';
 import { AddVideoComponent } from './pages/add-video/add-video.component';
 import { VideoEditComponent } from './videos/video-edit/video-edit.component';
 import { VideosComponent } from './videos/videos.component';
+
 //End OF VIDEOS
 
 
@@ -59,9 +61,8 @@ import { LoginGuard } from './pages/login/login.guard';
     LoadingSpinnerComponent,
     MobileNavComponent,
     AddVideoComponent,
-    VideoEditComponent
-    
- 
+    VideoEditComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -74,5 +75,3 @@ import { LoginGuard } from './pages/login/login.guard';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule);
