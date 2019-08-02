@@ -1,41 +1,36 @@
+@import "~src/scss/variables";
+
 .nav {
     display: block;
     text-align: end;
-    // grid-area: 2;
-    // background-color: #f0e3db;
     
   
 
     .link {
-        
         display: inline-block;
-        // margin-left: 1.5rem;
         padding-left: 50px;
         padding-right: 50px;
         
         a {
             text-decoration: none;
-            color: #76726F;
+            color: $color-dark;
             font-size: 1.5rem;
         }
     }
 
     .links {
-        
         padding-top: 3vh;
         text-align: center;
-        
-        
     }
     
   
     .active {
-        background-color: #8C8885;
+        background-color: $color-dark-active;
        
     }
     
     .active a {
-         color: #FFF9F5 ;
+         color: $color-white ;
         
         
     }
@@ -44,7 +39,7 @@
 
 
 
-@media (max-width: 780px) {
+@media (max-width: $breakpoint-tablet) {
     .links {
         display: none;
     }

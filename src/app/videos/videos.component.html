@@ -3,7 +3,7 @@
     <li *ngFor="let video of videosArray" class="video">
       <h2 class="video__tittle">{{ video.name  }}</h2>
       <div class="video__player">
-      <iframe [src]="video.url | safe: 'resourceUrl'" width="640" height="360"
+      <iframe [src]="video.url | safe: 'resourceUrl'"
         frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
       </div>
       <div class="video__description">{{ video.description }}</div>

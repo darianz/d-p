@@ -13,7 +13,7 @@ export class AddVideoComponent implements OnInit {
 
   videos: any;
 
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('f', { static: true }) loginForm: NgForm;
   name: string;
   url: string;
   type: string;

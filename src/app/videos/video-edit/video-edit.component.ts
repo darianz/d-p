@@ -10,10 +10,9 @@ import { VideosService } from 'src/app/shared/videos.service';
 })
 export class VideoEditComponent implements OnInit {
 
-  @ViewChild('f') form: NgForm;
+  @ViewChild('f', { static: false }) form: NgForm;
   @Input() video: Video;
   edittedVideo: Video;
-  // @Input() seen = false;
   name: string;
   url: string;
   type: string;
@@ -41,14 +40,12 @@ export class VideoEditComponent implements OnInit {
   }
 
   onSubmit() {
-
+    //For edit successful message
     const onSuccess = () => {
       this.changesDone = true;
-      console.log('this.changesDone:', this.changesDone)
     };
 
     this.submited = true;
-   
     this.name = this.form.value.name;
     this.type = this.form.value.type;
     this.url = this.form.value.url;
@@ -58,9 +55,7 @@ export class VideoEditComponent implements OnInit {
     if (this.videosService.sortValidation(this.url) ) {
       this.url = this.videosService.fixUrl(this.url, this.type);
     }
-    console.log('THE VIDEO ' ,this.video);
-    this.edittedVideo = new Video(this.name, this.url, this.type, this.description, this.video.id, this.page)
-
+    this.edittedVideo = new Video(this.name, this.url, this.type, this.description, this.video.id, this.page);
     this.videosService.editVideoOnServer(this.video.id, this.edittedVideo, onSuccess);
   }
 }

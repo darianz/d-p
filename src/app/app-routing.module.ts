@@ -7,6 +7,7 @@ import { WeddingsComponent } from './pages/weddings/weddings.component';
 import { AddVideoComponent } from './pages/add-video/add-video.component';
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LoginGuard } from './pages/login/login.guard';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent },
@@ -14,9 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'business', component: BusinessComponent},
   {path: 'weddings', component: WeddingsComponent},
-  {path: 'add-video', component: AddVideoComponent},
-  
-  // {path: 'video-edit', component: VideoEditComponent, canActivate: [LoginGuard]},
+  {path: 'add-video', component: AddVideoComponent , canActivate: [LoginGuard]}, 
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
   ];

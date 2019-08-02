@@ -1,11 +1,13 @@
+@import "~src/scss/variables";
+
 .video{
     display: block;
     height: 100%; //560px
-    background-color: #F3F3F3;
-    color: #76726F;
+    background-color: $color-light-grey;
+    color: $color-dark;
     padding-top: 5vh;
     margin-bottom: 10vh; 
-    box-shadow: 6px 6px 20px #b2b1b04d;
+    box-shadow: 6px 6px 20px $color-boxshaow;
     text-align: center;
 
     &__title {
@@ -15,8 +17,13 @@
     }
 
     &__player {
-        width: 640px; 
-        height: 360px;
+        width: 100%;
+        height: 100%;
+        
+        iframe {
+            width: 640px; 
+            height: 360px;
+        }
     }
 
     &__description {
@@ -25,18 +32,29 @@
     }
     
 }
-@media (min-width: 1500px) {
+@media (min-width: $breakpoint-widescreen) {
     .video {
-        height: 780px;
-
         &__title {
             font-weight: 700;
             font-size: 2.2rem;
         }
 
         &__player {
-            width: 960px; 
-            height: 540px;
+            iframe {
+                width: 960px; 
+                height: 540px;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .video {
+        &__player {
+            iframe {
+                width: 100%; 
+                height: '';
+            }
         }
     }
 }

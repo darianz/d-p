@@ -16,7 +16,9 @@ input.ng-invalid.ng-touched{
 
     &__form {
 
-        
+        input {
+            text-align: right;
+        }
         &__type {
             margin-bottom: 10px;
             margin-top: 10px;

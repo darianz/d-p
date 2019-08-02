@@ -15,7 +15,6 @@ export class VideosService {
   constructor(private serverHandeler: ServerHandelerService) { }
 
   editVideoOnServer(id, video, success: Function) {
-    console.log('success:', success)
     this.serverHandeler.editVideoOnServer(id, video).subscribe(
       (response) => {
         success();
@@ -24,26 +23,24 @@ export class VideosService {
     )
   }
 
+  deleteVideosFromServer(videoId: string){
+    this.serverHandeler.deleteVideoFromServer(videoId).subscribe(
+    (error) => console.log(error)
+  );
+  }
+
   getVideosFromServer(){
     this.serverHandeler.getVideosFromServer().subscribe(
       (response) => {
-        console.log(response);
         this.edited = false;
-        // this.serverVideosArray = response;
         this.videoToPage(response);
-        
       },
       (error) => console.log(error)
     );
   }
 
-  deleteVideosFromServer(videoId: string){
-    this.serverHandeler.deleteVideoFromServer(videoId);
-  }
-
   sortValidation(url: string){
-    console.log ('URL from sortValidation' + url);
-    if(url.includes('https://www.youtube.com/embed/')) {  //WARNING makes infinate loops
+    if(url.includes('https://www.youtube.com/embed/' || '<iframe src="https://www.facebook.com/' || 'https://player.vimeo.com/video/')) {
       return false;
     }
     return true;
@@ -53,10 +50,8 @@ export class VideosService {
     if (url && type) {
         switch (type) {
           case 'youtube':
-              console.log ('URL from fixUrl' + url);
             if(url.includes('https://www.youtube.com/watch?v=')) {  //WARNING makes infinate loops
             url = this.youtubeVideoHandle(url);  
-            // this.pushToPageArray(video);
             return url;
             }
             else {
@@ -66,20 +61,15 @@ export class VideosService {
           case 'vimeo':
             if (url.includes('https://vimeo.com/')) {
               url = this.vimeoVideoHandle(url);
-              // this.pushToPageArray(video);
               return url;
             } 
-            // else if (video.url.includes('https://player.vimeo.com/video/')) {
-            //   this.pushToPageArray(video);
-            // }
             else {
-              
+              // ERROR HANDELING 
             }
             break;
           case 'facebook':
             if (url.includes('<iframe src="https://www.facebook.com/')) {
               url = this.facebookVideoHandle(url);
-              // this.pushToPageArray(video);
               return url;
             } else {
               // ERROR
@@ -121,7 +111,6 @@ export class VideosService {
         this.businessPagesVideosArray.push(video);
       }
     }
-    
   }
 
 

@@ -1,5 +1,7 @@
+@import "~src/scss/variables";
+
 .home {
-    background-color: #9D7A70 ;
+    background-color: $color-home;
     span {
         display: block;
         text-align: center;

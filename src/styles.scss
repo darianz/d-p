@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "scss/breakpoints";
+@import "~src/scss/_variables.scss";
 
 *, body {
     margin: 0;
@@ -12,17 +12,3 @@ body {
     font-weight: 300;
     
 }
-
-
-
-/* 
-****THEME COLORS****
-
-main - faf6f3
-Light Gray - F3F3F3
-White FFFFFF
-Grayish - B2B1B0 
-Blackish - 76726F 
-
-
-*/
