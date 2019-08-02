@@ -40,6 +40,9 @@ import { VideosComponent } from './videos/videos.component';
 
 // SERVER
 import { LoginGuard } from './pages/login/login.guard';
+import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ContactIconsComponent } from './pages/contact/contact-icons/contact-icons.component';
 
 
 
@@ -62,7 +65,10 @@ import { LoginGuard } from './pages/login/login.guard';
     MobileNavComponent,
     AddVideoComponent,
     VideoEditComponent,
-    SafePipe
+    SafePipe,
+    FooterComponent,
+    ContactComponent,
+    ContactIconsComponent
   ],
   imports: [
     BrowserModule,
