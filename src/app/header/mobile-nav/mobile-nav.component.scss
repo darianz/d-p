@@ -1,19 +1,18 @@
 @import "~src/scss/variables";
+@import "~src/scss/mixin";
 
 .toggleMenuStyle {
     display: none;
 }
 
 @media (min-width: $breakpoint-tablet) {
-
     .links-nav {
         display: none;
     }
 }
 
-@media (max-width: $breakpoint-tablet) {
-
-    .mobile-nav {
+.mobile-nav {
+    @include for-phone-only {
         position: absolute;
         margin-left: 50%;
         transform: translateX(-50%);
@@ -26,8 +25,10 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+}
 
-    .links-nav {
+.links-nav {
+    @include for-phone-only {
         position: relative;
         top: 10vh;
         width: 100%;
@@ -58,7 +59,9 @@
             }  
         }
     }
-    .active {
+}
+.active {
+    @include for-phone-only {
         a {
             border: medium dashed $color-dark;
         }

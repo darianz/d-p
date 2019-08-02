@@ -17,8 +17,14 @@ export class NavComponent implements OnInit {
   ngOnInit() {
    this.userSub =  this.loginService.user.subscribe(user => {
     this.isLogged = !user ? false : true;
+    console.log("this.isLogged", this.isLogged);
+    
     this.loginService.setUserLogged(this.isLogged);
    });
+
+   this.isLogged = this.loginService.isLogged;
+
+   
   }
 
   onLogout(){

@@ -1,5 +1,6 @@
 @import "~src/scss/variables";
 @import "~src/scss/keyframes";
+@import "~src/scss/mixin";
 
 .nav {
     display: block;
@@ -26,6 +27,9 @@
     .links {
         padding-top: 3vh;
         text-align: center;
+        @include for-phone-only {
+            display: none;
+        }
     }
     
   
@@ -38,15 +42,6 @@
          color: $color-white ;
         
         
-    }
-
-}
-
-
-
-@media (max-width: $breakpoint-tablet) {
-    .links {
-        display: none;
     }
 
 }

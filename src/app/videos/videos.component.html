@@ -8,7 +8,9 @@
       </div>
       <div class="video__description">{{ video.description }}</div>
       <div class="buttons" *ngIf="isLogged">
-        <button class="btn btn-primary" (click)="onEdit()">{{!!EditButtonContent ? 'בטל' : 'ערוך'}}</button><button class="btn btn-danger" (click)="onDelete(video.id)">Delete</button>
+        <button class="btn btn-primary" (click)="onEdit()">{{EditButtonContent ? 'בטל' : 'ערוך'}}</button>
+        <!-- <button class="btn btn-primary" (click)="onEdit()"></button> -->
+        <button class="btn btn-danger" (click)="onDelete(video.id)">Delete</button>
         <app-video-edit [video]='video' *ngIf="showEditForm"></app-video-edit>
       </div>
     </li>

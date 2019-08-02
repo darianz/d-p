@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterContentChecked, HostListener } from '@angular/core';
+import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
 import { Video } from '../videos/video.module';
 import { VideosService } from '../shared/videos.service';
 
@@ -38,6 +38,7 @@ export class VideosComponent implements OnInit, AfterContentChecked {
 
   onDelete(id) {
     //In case we want delete message
+    ////////////////////////////
     // const onSuccess = () => {
     //   this.deleted = true;
     //   console.log("this this.deleted", this.deleted);
@@ -51,7 +52,4 @@ export class VideosComponent implements OnInit, AfterContentChecked {
     }
 
   }
-
-
-
 }
