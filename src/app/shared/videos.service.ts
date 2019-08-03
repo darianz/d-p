@@ -6,7 +6,12 @@ import { ServerHandelerService } from './server-handeler.service';
   providedIn: 'root'
 })
 export class VideosService {
-  
+  prefixedYoutubeURL = 'https://www.youtube.com/watch?v=';
+  fixedYoutubeURL = 'https://www.youtube.com/embed/';
+  prefixedVimeoURL = 'https://vimeo.com/';
+  fixedVimeoURL = 'https://player.vimeo.com/video/';
+  FacebookURL = '<iframe src="https://www.facebook.com/';
+ 
   edited = false;
 
   weddingsPagesVideosArray: Video[] = [];
@@ -39,8 +44,38 @@ export class VideosService {
     );
   }
 
+  urlInputValidation (url: string , type: string){
+    switch (type) {
+      case 'youtube':
+        if(url.includes(this.prefixedYoutubeURL || this.fixedYoutubeURL)) {  //WARNING makes infinate loops
+          return true;
+        }
+        else {
+          return false;
+        }
+        
+      case 'vimeo':
+        if(url.includes(this.prefixedVimeoURL || this.fixedVimeoURL)) {  //WARNING makes infinate loops
+          return true;
+        }
+        else {
+          return false;
+        }
+        
+      case 'facebook':
+        if(url.includes(this.FacebookURL)) {  //WARNING makes infinate loops
+          return true;
+        }
+        else {
+          return false;
+        }
+        
+    }
+    return false; // URL IS NOT MATCHING ANY TYPE 
+  }
+  
   sortValidation(url: string){
-    if(url.includes('https://www.youtube.com/embed/' || '<iframe src="https://www.facebook.com/' || 'https://player.vimeo.com/video/')) {
+    if(url.includes(this.fixedYoutubeURL || this.FacebookURL || this.fixedVimeoURL)) {
       return false;
     }
     return true;

@@ -10,16 +10,16 @@
       </div>
       <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="!isLoading">
         <div class="form-group">
-          <label for="email">E-Mail</label>
+          <label for="email">אימייל</label>
           <input type="email" id="email" class="form-control" ngModel name="email" required email />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">סיסמא</label>
           <input type="password" id="password" class="form-control" ngModel name="password" required minlength="6" />
         </div>
         <div>
           <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
-            Login
+            התחבר
           </button>
 
 

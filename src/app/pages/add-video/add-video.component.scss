@@ -6,9 +6,11 @@ input.ng-invalid.ng-touched{
 .help-block {
     color: red;
 }
+
+option {
+    direction: rtl;
+}
 .add-video {
-    float: right;
-    padding-right: 25%;
     text-align: right;
 
     width: 700px;
@@ -20,22 +22,25 @@ input.ng-invalid.ng-touched{
             text-align: right;
         }
         &__type {
-            margin-bottom: 10px;
+            height: 50px;
             margin-top: 10px;
 
             select {
                 float: left;
                 width: 50%;
+
+                
             }
         }
 
         &__page {
-            margin-bottom: 10px;
-            margin-top: 10px;
+            height: 50px;   
             
             select {
                 float: left;
                 width: 50%;
+
+               
             }
         }
     }
@@ -43,6 +48,7 @@ input.ng-invalid.ng-touched{
 }
 
 label {
+    float: right;
     margin-bottom: 10px;
 }
 

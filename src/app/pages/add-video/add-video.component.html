@@ -1,4 +1,4 @@
-<div class="containeer add-video">
+<div class="container add-video">
   <h1>הוספת סרטון</h1>
   <form class="form add-video__form" (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="name">
@@ -36,6 +36,9 @@
       <label for="URL">כתובת מלאה</label>
       <div *ngIf = "!url.valid && url.touched">
         <span class="help-block" >יש להוסיף כתובת   </span>
+      </div>
+      <div *ngIf = "!urlValid">
+        <span class="help-block" >הכתובת אינה תואמת את הסוג </span>
       </div>
       <input type="text" id="URL" class="form__control form-control" ngModel name="url" required #url="ngModel">
     </div>

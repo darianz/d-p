@@ -7,7 +7,7 @@ import { VideosService } from '../shared/videos.service';
   selector: 'app-videos',
   templateUrl: './videos.component.html',
   styleUrls: ['./videos.component.scss'],
-
+  
 })
 export class VideosComponent implements OnInit, AfterContentChecked {
   @Input() page: string;
@@ -45,7 +45,7 @@ export class VideosComponent implements OnInit, AfterContentChecked {
       
     // };
 
-    this.confirmAnswer = confirm('Are you sure you want to delete?');
+    this.confirmAnswer = confirm('אישור מחיקת סרטון');
     if (this.confirmAnswer) {
       this.videosService.deleteVideosFromServer(id);
       location.reload();

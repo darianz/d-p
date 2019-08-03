@@ -12,6 +12,7 @@ export class VideoEditComponent implements OnInit {
 
   @ViewChild('f', { static: false }) form: NgForm;
   @Input() video: Video;
+  urlValid = true;
   edittedVideo: Video;
   name: string;
   url: string;
@@ -26,6 +27,7 @@ export class VideoEditComponent implements OnInit {
   constructor(private videosService: VideosService) { }
   
   ngOnInit() {
+    
     this.name = this.video.name;
     this.type = this.video.type;
     this.page = this.video.page;
@@ -52,10 +54,39 @@ export class VideoEditComponent implements OnInit {
     this.description = this.form.value.description;
     this.page = this.form.value.page
     console.log(this.form.value);
-    if (this.videosService.sortValidation(this.url) ) {
-      this.url = this.videosService.fixUrl(this.url, this.type);
+
+
+    // if (this.videosService.urlInputValidation(this.url , this.type)) {
+    //   if (this.videosService.sortValidation(this.url) ) {
+    //     this.url = this.videosService.fixUrl(this.url, this.type);
+    //   }
+    //   this.video = new Video(this.name, this.url, this.type, this.description, "", this.page  )
+    //   console.log("my URL bitch: ", this.url);
+    //   this.ServerHandelerService.storeVideo(this.video)
+    //     .subscribe(
+    //       (response) => console.log(response),
+    //       (error) => console.log(error)
+    //     );
+      
+    // }else {
+      
+    //   this.submited = false;
+    //   this.urlValid = false;
+
+    // }
+
+    if (this.videosService.urlInputValidation(this.url , this.type)) {
+      if (this.videosService.sortValidation(this.url) ) {
+        this.url = this.videosService.fixUrl(this.url, this.type);
+      }
+      this.edittedVideo = new Video(this.name, this.url, this.type, this.description, this.video.id, this.page);
+      this.videosService.editVideoOnServer(this.video.id, this.edittedVideo, onSuccess);
+
+    }else {
+      this.submited = false;
+      this.urlValid = false;
     }
-    this.edittedVideo = new Video(this.name, this.url, this.type, this.description, this.video.id, this.page);
-    this.videosService.editVideoOnServer(this.video.id, this.edittedVideo, onSuccess);
+
+   
   }
 }
