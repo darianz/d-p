@@ -10,13 +10,14 @@ input.ng-invalid.ng-touched{
 option {
     direction: rtl;
 }
-.add-video {
+.edit-video {
     text-align: right;
 
     width: 700px;
     height: auto;
 
     &__form {
+        padding-bottom: 80px;
 
         input {
             text-align: right;
