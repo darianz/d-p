@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Video } from '../videos/video.module';
 import { ServerHandelerService } from './server-handeler.service';
+import { log } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +48,7 @@ export class VideosService {
   urlInputValidation (url: string , type: string){
     switch (type) {
       case 'youtube':
-        if(url.includes(this.prefixedYoutubeURL || this.fixedYoutubeURL)) {  //WARNING makes infinate loops
+        if(url.includes(this.prefixedYoutubeURL) || url.includes(this.fixedYoutubeURL)) {
           return true;
         }
         else {
@@ -55,7 +56,7 @@ export class VideosService {
         }
         
       case 'vimeo':
-        if(url.includes(this.prefixedVimeoURL || this.fixedVimeoURL)) {  //WARNING makes infinate loops
+        if(url.includes(this.prefixedVimeoURL) || url.includes(this.fixedVimeoURL)) {
           return true;
         }
         else {
@@ -63,7 +64,7 @@ export class VideosService {
         }
         
       case 'facebook':
-        if(url.includes(this.FacebookURL)) {  //WARNING makes infinate loops
+        if(url.includes(this.FacebookURL)) {
           return true;
         }
         else {
@@ -134,6 +135,13 @@ export class VideosService {
   }
   youtubeVideoHandle(url: string) {
     url = url.slice(32);
+    let indexOfEl = Array.from(url).findIndex((el) => {
+      if (el === '&') {
+        return true;
+      }
+    });
+    url = url.slice(0, indexOfEl);
+    console.log("this is the url ", url)
     url = 'https://www.youtube.com/embed/' + url;
     return url;
   }
